@@ -1,0 +1,32 @@
+html {
+  font: normal 112.5%/1.65 serif;
+}
+
+body
+{
+  padding: 0;
+  margin: 0;
+  background: $body-background;
+  color: $body-copy-color;
+}
+
+li,
+dd
+{
+  margin-left: 2em;
+}
+
+blockquote,
+cite
+{
+  font-style: italic;
+}
+
+
+
+.container
+{
+  width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+}

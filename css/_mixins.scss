@@ -1,0 +1,22 @@
+@mixin clearfix()
+{
+  &:before,
+  &:after
+  {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+
+  &:after
+  {
+    clear: both;
+  }
+}
+
+@mixin column-count( $columns )
+{
+  -webkit-column-count: $columns; /* Safari and Chrome */
+     -moz-column-count: $columns; /* Firefox */
+          column-count: $columns;
+}

@@ -1,0 +1,52 @@
+blockquote
+{
+  margin: 1.5em 4em;
+
+  p
+  {
+    &:last-of-type
+    {
+      margin-bottom: -1em;
+    }
+  }
+  + figcaption
+  {
+    text-align: right;
+    margin-bottom: 1em;
+
+    // Make sure the figcaption will stack above .pull-quote:atfter
+    position: relative;
+
+    &:before
+    {
+      content: "\2014";
+      margin-right: .5em;
+    }
+  }
+}
+
+
+.pull-quote
+{
+  position: relative;
+  
+  &:before,
+  &:after
+  {
+    position: absolute;
+    height: 0.5em;
+    opacity: .3;
+    font-size: 4em;
+    color: #666666;
+  }
+  &:before {
+    content: '“';
+    top:  0;
+    left: -1em;
+  }
+  &:after {
+    content: '”';
+    bottom: 0;
+    right: -1em;
+  }
+}

@@ -1,0 +1,57 @@
+.slide
+{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.slide--inverse
+{
+  color: #FFFFFF - $body-copy-color;
+  background: $body-background-inverse;
+
+  %hN
+  {
+    color: #FFFFFF - $heading-color;
+  }
+}
+
+
+.slide__header
+{
+  @extend .h2;
+}
+
+
+.slide__item
+{
+  padding-top: 2em;
+  padding-bottom: 3em;
+
+  + .slide__item
+  {
+    border-top: .8em double #ececec;
+
+    &:before
+    {
+      content: "(DC)";
+
+      // Positioning
+      position: absolute;
+      margin-top: -1.7em;
+      left: 50%;
+      margin-left: -3%;
+
+      // Display
+      text-shadow: 0 -1px 1px rgba( 0, 0, 0, 0.6 ),
+                   0 1px 1px #fff;
+      font-size: 2em;
+      font-family: hellodenverregular;
+      color: #dcdcdc;
+
+      // Blending nicely
+      border-radius: 80%;
+      background: $body-background;
+      padding: 0 20px;
+    }
+  }
+}

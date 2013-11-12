@@ -1,0 +1,40 @@
+.tera { font-size: 5em; }
+.giga { font-size: 4em; }
+.mega { font-size: 3.333em; }
+h1, .h1 { font-size: 2.4em; @extend %hN; }
+h2, .h2 { font-size: 2em; @extend %hN; }
+h3, .h3 { font-size: 1.7em; @extend %hN; }
+h4, .h4 { font-size: 1.4em; @extend %hN; }
+h5, .h5 { font-size: 1.1em; @extend %hN; }
+h6, .h6 { font-size: .9em; @extend %hN; }
+
+%hN
+{
+  margin-top: .3em;
+  margin-bottom: .7em;
+  color: $heading-color;
+
+  small
+  {
+    color: #666666;
+    font-size: .75em;
+    &:before
+    {
+      content: "\2014";
+    }
+  }
+}
+
+.page-head
+{
+  font-family: hellodenverregular;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+
+  &,
+  a
+  {
+    color: $brand-color;
+    text-decoration: none;
+  }
+}

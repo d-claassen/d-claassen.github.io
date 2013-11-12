@@ -1,0 +1,40 @@
+/*
+.columns
+{
+  @include column-count( 3 );
+}
+*/
+
+ol
+{
+  counter-reset: counter;
+
+  > li
+  {
+    list-style: none;
+    text-indent: -1.5em;
+    margin: 1em 0 0 1em;
+    padding-left: 2em;
+    letter-spacing: -15px;
+
+    &:before
+    {
+      counter-increment: counter;
+      content: counter(counter);
+      font-family: Raleway, 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: 6em;
+      line-height: .2em;
+      padding: .05em 0 .05em;
+      display: inline-block;
+      vertical-align: middle;
+      color: #fbfbfb;
+      text-shadow: 0 0 10px #cccccc;
+    }
+
+    &:nth-child(even)
+    {
+      padding-left: 3em;
+      padding-right: 0;
+    }
+  }
+}
