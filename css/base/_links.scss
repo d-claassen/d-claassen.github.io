@@ -1,0 +1,25 @@
+a
+{
+  color: $brand-color;
+}
+
+[href^="mailto:"]
+{
+  // Envelope icon
+}
+
+[href^="http://"]
+{
+  // Globe icon
+}
+
+[href^="https://"]
+{
+  // Globe with lock icon
+}
+
+[href^="https://twitter.com"],
+[href^="http://twitter.com"]
+{
+  // Twitter icon
+}

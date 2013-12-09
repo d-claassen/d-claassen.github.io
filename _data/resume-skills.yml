@@ -1,0 +1,28 @@
+- name: HTML5
+  isAbbrev: true
+
+- name: CSS
+  isAbbrev: true
+
+- name: JavaScript
+
+- name: jQuery
+
+- name: Flash
+
+- name: ActionScript 3
+
+- name: PHP
+  isAbbrev: true
+
+- name: SQL
+  isAbbrev: true
+
+- name: Zend Framework
+
+- name: ASP.NET
+  isAbbrev: true
+
+- name: Microsoft Office
+
+- name: Database Design

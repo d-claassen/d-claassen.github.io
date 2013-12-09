@@ -1,0 +1,7 @@
+@for $i from 2 through 4
+{
+  .is-#{ $i }column
+  {
+    @include column-count( $i );
+  }
+}

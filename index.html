@@ -3,4 +3,151 @@ layout: default
 title: Home
 ---
 
-<h1>Hello world!</h1>
+<section itemscope itemtype="http://schema.org/Person" class="slide slide--profile">
+  <div class="container">
+    <h1>
+      Hi! I&apos;m <span itemprop="name">Dennis</span>.
+      I&apos;m currently a <span itemprop="jobTitle">web developer</span> at Uitzendbureau.nl.
+    </h1>
+
+    <ul class="unstyled">
+      <li>
+        <a href="http://www.dennisclaassen.nl/" rel="me" itemprop="url">
+          <i class="icon-globe"></i> www.dennisclaassen.nl
+        </a>
+      </li>
+    
+      <li>
+        <a href="mailto:info@dennisclaassen.nl" itemprop="email">
+          <i class="icon-envelope"></i> info@dennisclaassen.nl
+        </a>
+      </li>
+    
+      <li>
+        <a href="http://twitter.com/declaassen" rel="me" itemprop="url">
+          <i class="twitter-icon"></i> @declaassen
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="slide slide--inverse slide--skills">
+  <div class="container">
+    <header class="slide__header">
+      <h2>Skills</h2>
+    </header>
+    
+    <section class="span8">
+      <article class="slide__item">
+        <ul class="is-3column">
+
+          {% for skill in site.data.resume-skills %}
+
+            <li>
+              {% if skill.isAbbrev %}<abbr class="initialism">{% endif %}
+              {{ skill.name }}
+              {% if skill.isAbbrev %}</abbr>{% endif %}
+            </li>
+
+          {% endfor %}
+          
+        </ul>
+      </article>
+    </section>
+  </div>
+</section>
+
+
+<section class="slide slide--experience">
+  <div class="container">
+    <header class="slide__header">
+      <h2>Experience</h2>
+    </header>
+    
+    <section class="span8">
+
+      {% for experience in site.data.resume-experience %}
+
+        <article class="slide__item" itemscope itemtype="http://schema.org/Organization">
+      	  <h3>
+      	    {{ experience.title }} <small> bij {{ experience.company }}</small>
+      	  </h3>
+      	  <p>
+      	    <time>{{ experience.start }}</time> - {{ experience.end }}
+      	  </p>
+
+      	  <p>
+      	    {{ experience.work_description }}
+                </p>
+
+      	  <figure>
+      	    <blockquote class="pull-quote">
+      	      <p itemprop="description">
+      	        {{ experience.company_description }}
+      	      </p>
+      	    </blockquote>
+      	    <figcaption>
+      	      <a href="{{ experience.company_url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/company/{{ experience.company }}' ] );"> {{ experience.company }} </a>
+      	    </figcaption>
+      	  </figure>
+      	</article>
+
+      {% endfor %}
+
+    </section>
+  </div>
+</section>
+
+<section class="slide slide--inverse slide--education">
+  <div class="container">
+    <header class="slide__header">
+      <h2>Education</h2>
+    </header>
+    
+    <section class="span8">
+
+      {% for education in site.data.resume-education %}
+
+        <article class="slide__item" itemscope itemtype="http://schema.org/EducationalOrganization">
+          <h3 itemprop="name"> {{ education.school }} <small>{{ education.faculty }}</small></h3>
+          <h4> {{ education.study }} </h4>
+          <p><time>{{ education.start }}</time> - <time>{{ education.end }}</time></p>
+
+          <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress">{{ education.address.street }}</span><br />
+            <span itemprop="postalCode">{{ education.address.zipcode }}</span> <span itemprop="addressLocality">{{ education.address.place }} </span>
+          </address>
+          
+          <a href="{{ education.url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/school/{{ education.school }}' ] );">
+            <i class="icon-globe"></i> {{ education.url }}
+          </a>
+        </article>
+
+      {% endfor %}
+
+    </section>
+  </div>
+</section>
+
+<div class="slide slide--social" itemscope itemtype="http://schema.org/Person">
+  <div class="container">
+    <header class="slide__header">
+      <h2>Find me on ...</h2>
+    </header>
+    <p class="is-4column">
+      <a rel="author" itemprop="url" href="https://plus.google.com/+DennisClaassen" title="Google+" target="_blank">
+        <span class="svg-icon svg-icon--google-plus svg-icon--xxlarge">Google+</span>
+      </a>
+      <a rel="me" itemprop="url" href="http://twitter.com/declaassen" title="Twitter" target="_blank">
+        <span class="svg-icon svg-icon--twitter svg-icon--xxlarge">Twitter</span>
+      </a>
+      <a rel="me" itemprop="url" href="http://www.linkedin.com/in/declaassen" title="LinkedIn" target="_blank">
+        <span class="svg-icon svg-icon--linkedin svg-icon--xxlarge">Linkedin</span>
+      </a>
+      <a rel="me" itemprop="url" href="https://github.com/d-claassen" title="GitHub" target="_blank">
+        <span class="svg-icon svg-icon--github svg-icon--xxlarge">GitHub</span>
+      </a>
+    </p>
+  </div>
+</div>
