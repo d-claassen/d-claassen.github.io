@@ -29,7 +29,15 @@ h6, .h6 { font-size: .9em; @extend %hN; }
 {
   font-family: hellodenverregular;
   text-transform: uppercase;
-  letter-spacing: 8px;
+  letter-spacing: .1em;
+  font-size: .6em;
+
+  @media(min-width: $medium-width) {
+    font-size: .8em;
+  }
+  @media(min-width: $large-width) {
+    font-size: 1em;
+  }
 
   &,
   a

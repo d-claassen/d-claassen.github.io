@@ -1,6 +1,9 @@
 html {
-  font: normal 112.5%/1.65 serif;
-  min-width: 1024px;
+  font: normal 100%/1.65 serif;
+
+  @media(min-width: $medium-width) {
+    font-size: 125%;
+  }
 }
 
 body
@@ -27,7 +30,14 @@ cite
 
 .container
 {
-  width: 1024px;
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+
+  @media(min-width: $medium-width) {
+    width: $medium-width;
+  }
+  @media(min-width: $large-width) {
+    width: $large-width;
+  }
 }

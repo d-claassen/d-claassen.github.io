@@ -1,7 +1,10 @@
-@for $i from 2 through 4
+@media( min-width: $medium-width )
 {
-  .is-#{ $i }column
+  @for $i from 2 through 4
   {
-    @include column-count( $i );
+    .is-#{ $i }column
+    {
+      @include column-count( $i );
+    }
   }
 }

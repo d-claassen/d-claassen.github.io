@@ -1,6 +1,6 @@
 blockquote
 {
-  margin: 1.5em 4em;
+  margin: 1.5em 3em;
 
   p
   {
@@ -14,7 +14,7 @@ blockquote
     text-align: right;
     margin-bottom: 1em;
 
-    // Make sure the figcaption will stack above .pull-quote:atfter
+    // Make sure the figcaption will stack above .pull-quote:after
     position: relative;
 
     &:before
@@ -42,11 +42,11 @@ blockquote
   &:before {
     content: '“';
     top:  0;
-    left: -1em;
+    left: -.75em;
   }
   &:after {
     content: '”';
     bottom: 0;
-    right: -1em;
+    right: -.75em;
   }
 }
