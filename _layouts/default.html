@@ -5,17 +5,24 @@
 
     <title>{{ page.title }}</title>
 
+    <link rel="stylesheet" href="/css/foundation.min.css" />
+    <link rel="stylesheet" href="/css/foundation-icons.css" />
     <link rel="stylesheet" href="/css/style.min.css" />
   </head>
   <body>
-    <header class="masthead page-head">
-      <div class="container">
-        <h1 class="tera">
-	  <a href="/">
-	    Dennis Claassen . nl
-	  </a>
-	</h1>
-      </div>
+    <header>
+      <nav class="top-bar" role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="/">Dennis Claassen.nl</a>
+            </h1>
+          </li>
+          <li class="toggle-topbar menu-icon">
+            <a href="#"><span>Menu</span></a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
     {{ content }}

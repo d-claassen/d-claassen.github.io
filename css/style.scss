@@ -1,4 +1,12 @@
-@import "variables";
+// icon sizes
+.extra-large{ font-size: 80px; line-height: 80px; }
+.large{ font-size: 50px; line-height: 50px; }
+.medium { font-size: 35px; padding: 0 5px; }
+.small { font-size: 20px; padding: 0 5px; }
+
+
+
+/*@import "variables";
 @import "mixins";
 
 @import "base/reset";
@@ -16,3 +24,4 @@
 @import "module/quotes";
 
 @import "state/is-column";
+*/

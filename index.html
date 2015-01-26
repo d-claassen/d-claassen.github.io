@@ -4,43 +4,48 @@ title: Home
 ---
 
 <section itemscope itemtype="http://schema.org/Person" class="slide slide--profile">
-  <div class="container">
-    <h1>
-      Hi! I&apos;m <span itemprop="name">Dennis</span>.
-      I&apos;m currently a <span itemprop="jobTitle">web developer</span> at Uitzendbureau.nl.
-    </h1>
-
-    <ul class="unstyled">
-      <li>
-        <a href="http://www.dennisclaassen.nl/" rel="me" itemprop="url">
-          <i class="icon-globe"></i> www.dennisclaassen.nl
-        </a>
-      </li>
-    
-      <li>
-        <a href="mailto:info@dennisclaassen.nl" itemprop="email">
-          <i class="icon-envelope"></i> info@dennisclaassen.nl
-        </a>
-      </li>
-    
-      <li>
-        <a href="http://twitter.com/declaassen" rel="me" itemprop="url">
-          <i class="twitter-icon"></i> @declaassen
-        </a>
-      </li>
-    </ul>
+  <div class="row">
+    <div class="columns">
+      <h1>
+        Hi! I&apos;m <span itemprop="name">Dennis</span>.
+        I&apos;m currently a <span itemprop="jobTitle">web developer</span> at Uitzendbureau.nl.
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <ul class="no-bullet">
+        <li>
+          <a href="http://www.dennisclaassen.nl/" rel="me" itemprop="url">
+            <i class="fi-bookmark"></i> www.dennisclaassen.nl
+          </a>
+        </li>
+      
+        <li>
+          <a href="mailto:info@dennisclaassen.nl" itemprop="email">
+            <i class="fi-mail"></i> info@dennisclaassen.nl
+          </a>
+        </li>
+      
+        <li>
+          <a href="http://twitter.com/declaassen" rel="me" itemprop="url">
+            <i class="fi-social-twitter"></i> @declaassen
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
 <section class="slide slide--inverse slide--skills">
-  <div class="container">
-    <header class="slide__header">
+  <div class="row">
+    <header class="medium-4 columns">
       <h2>Skills</h2>
     </header>
     
-    <section class="span8">
-      <article class="slide__item">
-        <ul class="is-3column">
+    <section class="medium-8 columns">
+      <article>
+        <ul class="small-block-grid-2">
 
           {% for skill in site.data.resume-skills %}
 
@@ -60,12 +65,12 @@ title: Home
 
 
 <section class="slide slide--experience">
-  <div class="container">
-    <header class="slide__header">
+  <div class="row">
+    <header class="medium-4 columns">
       <h2>Experience</h2>
     </header>
     
-    <section class="span8">
+    <section class="medium-8 columns">
 
       {% for experience in site.data.resume-experience %}
 
@@ -100,12 +105,12 @@ title: Home
 </section>
 
 <section class="slide slide--inverse slide--education">
-  <div class="container">
-    <header class="slide__header">
+  <div class="row">
+    <header class="medium-4 columns">
       <h2>Education</h2>
     </header>
     
-    <section class="span8">
+    <section class="medium-8 columns">
 
       {% for education in site.data.resume-education %}
 
@@ -131,23 +136,33 @@ title: Home
 </section>
 
 <div class="slide slide--social" itemscope itemtype="http://schema.org/Person">
-  <div class="container">
-    <header class="slide__header">
-      <h2>Find me on ...</h2>
+  <div class="row">
+    <header class="medium-4 columns">
+      <h2>Find me on</h2>
     </header>
-    <p class="is-4column">
-      <a rel="author" itemprop="url" href="https://plus.google.com/+DennisClaassen" title="Google+" target="_blank">
-        <span class="svg-icon svg-icon--google-plus svg-icon--xxlarge">Google+</span>
-      </a>
-      <a rel="me" itemprop="url" href="http://twitter.com/declaassen" title="Twitter" target="_blank">
-        <span class="svg-icon svg-icon--twitter svg-icon--xxlarge">Twitter</span>
-      </a>
-      <a rel="me" itemprop="url" href="http://www.linkedin.com/in/declaassen" title="LinkedIn" target="_blank">
-        <span class="svg-icon svg-icon--linkedin svg-icon--xxlarge">Linkedin</span>
-      </a>
-      <a rel="me" itemprop="url" href="https://github.com/d-claassen" title="GitHub" target="_blank">
-        <span class="svg-icon svg-icon--github svg-icon--xxlarge">GitHub</span>
-      </a>
-    </p>
+    <div class="medium-8 columns">
+      <ul class="small-block-grid-4">
+        <li>
+          <a rel="author" itemprop="url" href="https://plus.google.com/+DennisClaassen" title="Google+" target="_blank">
+            <i class="fi-social-google-plus extra-large"></i>
+          </a>
+        </li>
+        <li>
+          <a rel="me" itemprop="url" href="http://twitter.com/declaassen" title="Twitter" target="_blank">
+            <i class="fi-social-twitter extra-large"></i>
+          </a>
+        </li>
+        <li>
+          <a rel="me" itemprop="url" href="http://www.linkedin.com/in/declaassen" title="LinkedIn" target="_blank">
+            <i class="fi-social-linkedin extra-large"></i>
+          </a>
+        </li>
+        <li>
+          <a rel="me" itemprop="url" href="https://github.com/d-claassen" title="GitHub" target="_blank">
+            <span class="fi-social-github extra-large"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
