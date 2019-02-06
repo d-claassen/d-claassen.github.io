@@ -7,5 +7,39 @@
 .medium { font-size: 35px; padding: 0 5px; }
 .small { font-size: 20px; padding: 0 5px; }
 
-.slide { padding: 80px 0; }
+.slide { padding: 80px 10vw; }
 .slide--inverse { background-color: #efefef; }
+
+@media (min-width: 50rem) {
+	.grid {
+		display: grid;
+		grid-template-columns: 1fr 5fr 2fr 5fr 5fr 2fr;
+		grid-template-rows: minmax(400px, min-content);
+		grid-gap: 20px;
+	}
+}
+
+.me {
+	.pic {
+		grid-column: 2 / 2;
+
+
+		font-size: 500%;
+	}
+
+	.intro {
+		grid-column: 4 / 6;
+
+		line-height: 1.2;
+	}
+}
+
+.section {
+	.header {
+		grid-column: 2 / 2;
+	}
+
+	.content {
+		grid-column: 4 / 6;
+	}
+}

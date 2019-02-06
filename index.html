@@ -1,162 +1,155 @@
 ---
 layout: default
-title: Home
+title: Home - Dennis Claassen.nl
 ---
 
-<section itemscope itemtype="http://schema.org/Person" class="slide slide--profile">
-  <div class="row">
-    <div class="columns">
-      <h1>
-        Hi! I&apos;m <span itemprop="name">Dennis</span>.
-        I&apos;m currently a <span itemprop="jobTitle">web developer</span> at Uitzendbureau.nl.
-      </h1>
-    </div>
+<section itemscope itemtype="http://schema.org/Person" class="slide grid me">
+  <div class="pic">
+    🙋‍♂️
   </div>
-  <div class="row">
-    <div class="columns">
-      <ul class="no-bullet">
-        <li>
-          <a href="mailto:info@dennisclaassen.nl" itemprop="email">
-            <i class="fi-mail"></i> info@dennisclaassen.nl
-          </a>
-        </li>
-      
-        <li>
-          <a href="http://twitter.com/declaassen" rel="me" itemprop="url">
-            <i class="fi-social-twitter"></i> @declaassen
-          </a>
-        </li>
-      </ul>
-    </div>
+  <div class="intro">
+    <h1>
+      Hi! I&apos;m <span itemprop="name">Dennis</span>.
+    </h1>
+    <h4>
+      I&apos;m currently a <span itemprop="jobTitle">web developer</span> at Uitzendbureau.nl.
+    </h4>
+
+    <ul class="no-bullet">
+      <li>
+        <a href="mailto:info@dennisclaassen.nl" itemprop="email">
+          <i class="fi-mail"></i> info@dennisclaassen.nl
+        </a>
+      </li>
+    
+      <li>
+        <a href="http://twitter.com/declaassen" rel="me" itemprop="url">
+          <i class="fi-social-twitter"></i> @declaassen
+        </a>
+      </li>
+    </ul>
   </div>
 </section>
 
-<section class="slide slide--inverse slide--skills">
-  <div class="row">
-    <header class="medium-4 columns">
-      <h2>Skills</h2>
-    </header>
+<section class="slide slide--inverse grid section">
+  <header class="header">
+    <h2>Skills</h2>
+  </header>
     
-    <section class="medium-8 columns">
-      <article>
-        <ul class="small-block-grid-2">
+  <section class="content">
+    <article>
+      <ul class="small-block-grid-2">
 
-          {% for skill in site.data.resume-skills %}
+        {% for skill in site.data.resume-skills %}
 
-            <li>
-              {% if skill.isAbbrev %}<abbr class="initialism">{% endif %}
-              {{ skill.name }}
-              {% if skill.isAbbrev %}</abbr>{% endif %}
-            </li>
+          <li>
+            {% if skill.isAbbrev %}<abbr class="initialism">{% endif %}
+            {{ skill.name }}
+            {% if skill.isAbbrev %}</abbr>{% endif %}
+          </li>
 
-          {% endfor %}
-          
-        </ul>
+        {% endfor %}
+        
+      </ul>
+    </article>
+  </section>
+</section>
+
+
+<section class="slide grid section">
+  <header class="header">
+    <h2>Experience</h2>
+  </header>
+    
+  <section class="content">
+
+    {% for experience in site.data.resume-experience %}
+
+      <article class="slide__item" itemscope itemtype="http://schema.org/Organization">
+    	  <h3>
+    	    {{ experience.title }} <small> bij {{ experience.company }}</small>
+    	  </h3>
+    	  <p>
+    	    <time>{{ experience.start }}</time> - {{ experience.end }}
+    	  </p>
+
+    	  <p>
+    	    {{ experience.work_description }}
+              </p>
+
+    	  <figure>
+    	    <blockquote class="pull-quote">
+    	      <p itemprop="description">
+    	        {{ experience.company_description }}
+    	      </p>
+    	    </blockquote>
+    	    <figcaption>
+    	      <a href="{{ experience.company_url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/company/{{ experience.company }}' ] );"> {{ experience.company }} </a>
+    	    </figcaption>
+    	  </figure>
+    	</article>
+
+    {% endfor %}
+
+  </section>
+</section>
+
+<section class="slide slide--inverse grid section">
+  <header class="header">
+    <h2>Education</h2>
+  </header>
+    
+  <section class="content">
+
+    {% for education in site.data.resume-education %}
+
+      <article class="slide__item" itemscope itemtype="http://schema.org/EducationalOrganization">
+        <h3 itemprop="name"> {{ education.school }} <small>{{ education.faculty }}</small></h3>
+        <h4> {{ education.study }} </h4>
+        <p><time>{{ education.start }}</time> - <time>{{ education.end }}</time></p>
+
+        <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+          <span itemprop="streetAddress">{{ education.address.street }}</span><br />
+          <span itemprop="postalCode">{{ education.address.zipcode }}</span> <span itemprop="addressLocality">{{ education.address.place }} </span>
+        </address>
+        
+        <a href="{{ education.url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/school/{{ education.school }}' ] );">
+          <i class="icon-globe"></i> {{ education.url }}
+        </a>
       </article>
-    </section>
-  </div>
+
+    {% endfor %}
+
+  </section>
 </section>
 
+<div class="slide grid section" itemscope itemtype="http://schema.org/Person">
+  <header class="header">
+    <h2>Find me on</h2>
+  </header>
 
-<section class="slide slide--experience">
-  <div class="row">
-    <header class="medium-4 columns">
-      <h2>Experience</h2>
-    </header>
-    
-    <section class="medium-8 columns">
-
-      {% for experience in site.data.resume-experience %}
-
-        <article class="slide__item" itemscope itemtype="http://schema.org/Organization">
-      	  <h3>
-      	    {{ experience.title }} <small> bij {{ experience.company }}</small>
-      	  </h3>
-      	  <p>
-      	    <time>{{ experience.start }}</time> - {{ experience.end }}
-      	  </p>
-
-      	  <p>
-      	    {{ experience.work_description }}
-                </p>
-
-      	  <figure>
-      	    <blockquote class="pull-quote">
-      	      <p itemprop="description">
-      	        {{ experience.company_description }}
-      	      </p>
-      	    </blockquote>
-      	    <figcaption>
-      	      <a href="{{ experience.company_url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/company/{{ experience.company }}' ] );"> {{ experience.company }} </a>
-      	    </figcaption>
-      	  </figure>
-      	</article>
-
-      {% endfor %}
-
-    </section>
-  </div>
-</section>
-
-<section class="slide slide--inverse slide--education">
-  <div class="row">
-    <header class="medium-4 columns">
-      <h2>Education</h2>
-    </header>
-    
-    <section class="medium-8 columns">
-
-      {% for education in site.data.resume-education %}
-
-        <article class="slide__item" itemscope itemtype="http://schema.org/EducationalOrganization">
-          <h3 itemprop="name"> {{ education.school }} <small>{{ education.faculty }}</small></h3>
-          <h4> {{ education.study }} </h4>
-          <p><time>{{ education.start }}</time> - <time>{{ education.end }}</time></p>
-
-          <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            <span itemprop="streetAddress">{{ education.address.street }}</span><br />
-            <span itemprop="postalCode">{{ education.address.zipcode }}</span> <span itemprop="addressLocality">{{ education.address.place }} </span>
-          </address>
-          
-          <a href="{{ education.url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/school/{{ education.school }}' ] );">
-            <i class="icon-globe"></i> {{ education.url }}
-          </a>
-        </article>
-
-      {% endfor %}
-
-    </section>
-  </div>
-</section>
-
-<div class="slide slide--social" itemscope itemtype="http://schema.org/Person">
-  <div class="row">
-    <header class="medium-4 columns">
-      <h2>Find me on</h2>
-    </header>
-    <div class="medium-8 columns">
-      <ul class="small-block-grid-4">
-        <li>
-          <a rel="author" itemprop="url" href="https://plus.google.com/+DennisClaassen" title="Google+" target="_blank">
-            <i class="fi-social-google-plus extra-large"></i>
-          </a>
-        </li>
-        <li>
-          <a rel="me" itemprop="url" href="http://twitter.com/declaassen" title="Twitter" target="_blank">
-            <i class="fi-social-twitter extra-large"></i>
-          </a>
-        </li>
-        <li>
-          <a rel="me" itemprop="url" href="http://www.linkedin.com/in/declaassen" title="LinkedIn" target="_blank">
-            <i class="fi-social-linkedin extra-large"></i>
-          </a>
-        </li>
-        <li>
-          <a rel="me" itemprop="url" href="https://github.com/d-claassen" title="GitHub" target="_blank">
-            <span class="fi-social-github extra-large"></span>
-          </a>
-        </li>
-      </ul>
-    </div>
+  <div class="content">
+    <ul class="small-block-grid-4">
+      <li>
+        <a rel="author" itemprop="url" href="https://plus.google.com/+DennisClaassen" title="Google+" target="_blank">
+          <i class="fi-social-google-plus extra-large"></i>
+        </a>
+      </li>
+      <li>
+        <a rel="me" itemprop="url" href="http://twitter.com/declaassen" title="Twitter" target="_blank">
+          <i class="fi-social-twitter extra-large"></i>
+        </a>
+      </li>
+      <li>
+        <a rel="me" itemprop="url" href="http://www.linkedin.com/in/declaassen" title="LinkedIn" target="_blank">
+          <i class="fi-social-linkedin extra-large"></i>
+        </a>
+      </li>
+      <li>
+        <a rel="me" itemprop="url" href="https://github.com/d-claassen" title="GitHub" target="_blank">
+          <span class="fi-social-github extra-large"></span>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
