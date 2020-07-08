@@ -8,17 +8,39 @@ title: Home - Dennis Claassen.nl
     🙋‍♂️
   </div>
   <div class="intro">
-    <h1>
+    <h2>
       Hi! I&apos;m <span itemprop="name">Dennis</span>.
-    </h1>
-    <h4>
-      I&apos;m currently a <span itemprop="jobTitle">web developer</span> at Uitzendbureau.nl.
-    </h4>
+    </h2>
+    <p class="lead">
+      I&apos;m currently a <span itemprop="jobTitle">senior developer</span> at YoungCapital. 
+      Our team focuses on the job boards <a href="https://www.uitzendbureau.nl" target="_blank" rel="noopener">Uitzendbureau.nl</a> &amp; <a href="https://www.jobbird.com/nl/" target="_blank" rel="noopener">Jobbird.com</a>.
+    </p>
+
+    <p>
+      After studying to become a web developer with a focus on the front-end, I did a lot of back-end development on the job. Knowing both the front- and back-end of our projects, I've become dedicated to continuously improve the overall developer experience in our team.
+    </p>
+
+    <p>
+      If you want to stay up to date with what interests me at the moment, the best places to follow me are:
+    </p>
 
     <ul class="no-bullet">
       <li>
-        <a href="http://twitter.com/declaassen" rel="me" itemprop="url">
-          <i class="fi-social-twitter"></i> @declaassen
+        <i class="fi-social-twitter"></i> 
+        <a href="http://twitter.com/declaassen" rel="me" itemprop="url" rel="noopener">
+          @declaassen
+        </a>
+      </li>
+      <li>
+        <i class="fi-social-linkedin"></i>
+        <a href="http://www.linkedin.com/in/declaassen" rel="me" itemprop="url" target="_blank" rel="noopener">
+          Dennis Claassen
+        </a>
+      </li>
+      <li>
+        <span class="fi-social-github"></span>
+        <a href="https://github.com/d-claassen" rel="me" itemprop="url" target="_blank" rel="noopener">
+          d-claassen
         </a>
       </li>
     </ul>
@@ -27,7 +49,7 @@ title: Home - Dennis Claassen.nl
 
 <section class="slide slide--inverse grid section">
   <header class="header">
-    <h2>Skills</h2>
+    <h3>Skills</h3>
   </header>
     
   <section class="content">
@@ -52,7 +74,7 @@ title: Home - Dennis Claassen.nl
 
 <section class="slide grid section">
   <header class="header">
-    <h2>Experience</h2>
+    <h3>Experience</h3>
   </header>
     
   <section class="content">
@@ -60,27 +82,24 @@ title: Home - Dennis Claassen.nl
     {% for experience in site.data.resume-experience %}
 
       <article class="slide__item" itemscope itemtype="http://schema.org/Organization">
-    	  <h3>
-    	    {{ experience.title }} <small> bij {{ experience.company }}</small>
-    	  </h3>
-    	  <p>
-    	    <time>{{ experience.start }}</time> - {{ experience.end }}
-    	  </p>
+        <h4>
+          {{ experience.company }}
+        </h4>
+        <p>
+          {{ experience.description | newline_to_br }}
+        </p>
 
-    	  <p>
-    	    {{ experience.work_description }}
-              </p>
+        <dl>
+          {% for role in experience.roles %}
 
-    	  <figure>
-    	    <blockquote class="pull-quote">
-    	      <p itemprop="description">
-    	        {{ experience.company_description }}
-    	      </p>
-    	    </blockquote>
-    	    <figcaption>
-    	      <a href="{{ experience.company_url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/company/{{ experience.company }}' ] );"> {{ experience.company }} </a>
-    	    </figcaption>
-    	  </figure>
+            <dt> {{ role.title }} </dt>
+
+        	  <dd>
+        	    <time>{{ role.start }}</time> - {{ role.end }}
+        	  </dd>
+
+          {% endfor %}
+        </dl>
     	</article>
 
     {% endfor %}
@@ -90,7 +109,7 @@ title: Home - Dennis Claassen.nl
 
 <section class="slide slide--inverse grid section">
   <header class="header">
-    <h2>Education</h2>
+    <h3>Education</h3>
   </header>
     
   <section class="content">
@@ -98,52 +117,23 @@ title: Home - Dennis Claassen.nl
     {% for education in site.data.resume-education %}
 
       <article class="slide__item" itemscope itemtype="http://schema.org/EducationalOrganization">
-        <h3 itemprop="name"> {{ education.school }} <small>{{ education.faculty }}</small></h3>
-        <h4> {{ education.study }} </h4>
-        <p><time>{{ education.start }}</time> - <time>{{ education.end }}</time></p>
+        <h4 itemprop="name"> {{ education.school }}</h4>
 
-        <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-          <span itemprop="streetAddress">{{ education.address.street }}</span><br />
-          <span itemprop="postalCode">{{ education.address.zipcode }}</span> <span itemprop="addressLocality">{{ education.address.place }} </span>
-        </address>
-        
-        <a href="{{ education.url }}" itemprop="url" onclick="_gaq.push( [ '_trackPageview', '/outgoing/school/{{ education.school }}' ] );">
-          <i class="icon-globe"></i> {{ education.url }}
-        </a>
+        <dl>
+          {% for study in education.studies %}
+
+            <dt> {{ study.study }} </dt>
+
+            <dd>
+              <time>{{ study.start }}</time> - {{ study.end }}
+            </dd>
+
+          {% endfor %}
+        </dl>
       </article>
 
     {% endfor %}
 
   </section>
 </section>
-
-<div class="slide grid section" itemscope itemtype="http://schema.org/Person">
-  <header class="header">
-    <h2>Find me on</h2>
-  </header>
-
-  <div class="content">
-    <ul class="small-block-grid-4">
-      <li>
-        <a rel="author" itemprop="url" href="https://plus.google.com/+DennisClaassen" title="Google+" target="_blank">
-          <i class="fi-social-google-plus extra-large"></i>
-        </a>
-      </li>
-      <li>
-        <a rel="me" itemprop="url" href="http://twitter.com/declaassen" title="Twitter" target="_blank">
-          <i class="fi-social-twitter extra-large"></i>
-        </a>
-      </li>
-      <li>
-        <a rel="me" itemprop="url" href="http://www.linkedin.com/in/declaassen" title="LinkedIn" target="_blank">
-          <i class="fi-social-linkedin extra-large"></i>
-        </a>
-      </li>
-      <li>
-        <a rel="me" itemprop="url" href="https://github.com/d-claassen" title="GitHub" target="_blank">
-          <span class="fi-social-github extra-large"></span>
-        </a>
-      </li>
-    </ul>
-  </div>
 </div>
