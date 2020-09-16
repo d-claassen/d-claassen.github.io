@@ -54,18 +54,15 @@ title: Home - Dennis Claassen.nl
     
   <section class="content">
     <article>
-      <ul class="small-block-grid-2">
-
         {% for skill in site.data.resume-skills %}
 
-          <li>
-            {% if skill.isAbbrev %}<abbr class="initialism">{% endif %}
-            {{ skill.name }}
-            {% if skill.isAbbrev %}</abbr>{% endif %}
-          </li>
+          <p>
+            <strong>{{ skill.name }}</strong>.
+            
+            {{ skill.description }}
+          </p>
 
         {% endfor %}
-        
       </ul>
     </article>
   </section>

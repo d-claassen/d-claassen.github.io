@@ -1,6 +1,11 @@
 - name: Web Development
-- name: Quality Assurance
+  description: HTML, JavaScript (jQuery, Vue), CSS (Sass), PHP (Symfony, Doctrine), Git.
 - name: Database Design
-- name: Test Driven Development
-- name: Unit Testing
-- name: Continuous Integration
+  description: MySQL, Elasticsearch.
+- name: Automated Testing
+  description: Unit testing (PHPUnit, Mocha), end-to-end testing (Selenium), test driven development.
+- name: Quality Assurance
+  description: Linting (PHP_CodeSniffer, ESLint), static analysis (Psalm, PHPStan), code review (Phabricator, GitHub), continuous integration (Jenkins), SonarQube.
+- name: Soft Skills
+  description: Communication, coaching, prioritizing, proactive
+
