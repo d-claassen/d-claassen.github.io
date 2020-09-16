@@ -45,6 +45,20 @@ title: Home - Dennis Claassen.nl
       </li>
     </ul>
   </div>
+  <div class="quotes">
+    <h4>What colleagues say about me</h4>
+    {% for quote in site.data.resume-quotes %}
+
+      <blockquote>
+        {{ quote.quote }}
+
+        {% if quote.author %}
+        <cite>{{ quote.author }}</cite>
+        {% endif %}
+      </blockquote>
+
+    {% endfor %}
+  </div>
 </section>
 
 <section class="slide slide--inverse grid section">
