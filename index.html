@@ -27,19 +27,19 @@ title: Home - Dennis Claassen.nl
     <ul class="no-bullet">
       <li>
         <i class="fi-social-twitter"></i> 
-        <a href="http://twitter.com/declaassen" rel="me" itemprop="url" target="_blank" rel="noopener">
+        <a href="http://twitter.com/declaassen" rel="me noopener" itemprop="url" target="_blank">
           @declaassen
         </a>
       </li>
       <li>
         <i class="fi-social-linkedin"></i>
-        <a href="http://www.linkedin.com/in/dennis-claassen-developer" rel="me" itemprop="url" target="_blank" rel="noopener">
+        <a href="http://www.linkedin.com/in/dennis-claassen-developer" rel="me noopener" itemprop="url" target="_blank">
           Dennis Claassen
         </a>
       </li>
       <li>
         <span class="fi-social-github"></span>
-        <a href="https://github.com/d-claassen" rel="me" itemprop="url" target="_blank" rel="noopener">
+        <a href="https://github.com/d-claassen" rel="me noopener" itemprop="url" target="_blank">
           d-claassen
         </a>
       </li>
@@ -68,16 +68,15 @@ title: Home - Dennis Claassen.nl
     
   <section class="content">
     <article>
-        {% for skill in site.data.resume-skills %}
+      {% for skill in site.data.resume-skills %}
 
-          <p>
-            <strong>{{ skill.name }}</strong>.
-            
-            {{ skill.description }}
-          </p>
+        <p>
+          <strong>{{ skill.name }}</strong>.
 
-        {% endfor %}
-      </ul>
+          {{ skill.description }}
+        </p>
+
+      {% endfor %}
     </article>
   </section>
 </section>
@@ -147,4 +146,3 @@ title: Home - Dennis Claassen.nl
 
   </section>
 </section>
-</div>
