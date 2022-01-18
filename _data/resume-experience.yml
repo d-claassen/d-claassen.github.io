@@ -1,3 +1,12 @@
+- company: Yoast
+  roles:
+  - title: Lead Developer
+    start: October 2021
+    End: Present
+  - title: Senior Developer
+    start: March 2021
+    end: October 2021
+
 - company: YoungCapital
   description: |
     In 2017 Hippo HR got acquired by YoungCapital. Being backed by a much bigger company gave a huge boost to the possibilities for our team. 
@@ -6,7 +15,7 @@
   roles:
   - title: Senior Developer Uitzendbureau.nl & Jobbird.com
     start: January 2020 
-    end: Present
+    end: February 2021
   - title: Developer Uitzendbureau.nl & Jobbird.com
     start: January 2019
     end: December 2019
