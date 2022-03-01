@@ -106,7 +106,7 @@ title: Home - Dennis Claassen.nl
               </div>
 
               <dd>
-                <time itemprop="startDate">{{ role.start }}</time> - <span itemprop="endDate">{{ role.end }}</span>
+                <time itemprop="startDate" datetime="{{ role.start | date_to_xmlschema }}">{{ role.start | date: "%B %Y" }}</time> - <span itemprop="endDate">{{ role.end }}</span>
               </dd>
             </div>
           {% endfor %}
