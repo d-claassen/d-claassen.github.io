@@ -113,9 +113,9 @@ title: Home - Dennis Claassen.nl
                     {{ role.start | date: "%B %Y" }}
                   </time>
                   -
-                  <span itemprop="endDate" datetime="{{ role.end | date: "%Y-%m-%d" }}">
+                  <time itemprop="endDate" datetime="{{ role.end | date: "%Y-%m-%d" }}">
                     {{ role.end | date: "%B %Y" }}
-                  </span>
+                  </time>
                 {% endif %}
               </dd>
             </div>
