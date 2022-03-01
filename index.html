@@ -87,7 +87,7 @@ title: Home - Dennis Claassen.nl
 
     {% for experience in site.data.resume-experience %}
 
-      <article class="slide__item" itemscope itemtype="http://schema.org/Organization">
+      <article class="slide__item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
         <h4>
           {{ experience.company }}
         </h4>
@@ -122,8 +122,7 @@ title: Home - Dennis Claassen.nl
 
     {% for education in site.data.resume-education %}
 
-      <article class="slide__item" itemscope itemtype="http://schema.org/EducationalOrganization">
-        <meta itemprop="alumni" content="http://www.dennisclaassen.nl/#/schema/person/1" />
+      <article class="slide__item" itemscope itemprop="alumniOf" itemtype="http://schema.org/EducationalOrganization">
         <h4 itemprop="name"> {{ education.school }}</h4>
 
         <dl>
