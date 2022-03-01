@@ -98,13 +98,15 @@ title: Home - Dennis Claassen.nl
 
         <dl>
           {% for role in experience.roles %}
+            <div itemprop="hasOccupation" itemscope itemtype="https://schema.org/Role">
               <div itemprop="hasOccupation" itemscope itemtype="http://schema.org/Occupation">
-                  <dt itemprop="name"> {{ role.title }} </dt>
-
-        	  <dd>
-        	    <time>{{ role.start }}</time> - {{ role.end }}
-        	  </dd>
+                <dt itemprop="name"> {{ role.title }} </dt>
               </div>
+
+              <dd>
+                <time itemprop="startDate">{{ role.start }}</time> - <span itemprop="endDate">{{ role.end }}</span>
+              </dd>
+            </div>
           {% endfor %}
         </dl>
     	</article>
