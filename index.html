@@ -87,14 +87,16 @@ title: Home - Dennis Claassen.nl
 
     {% for experience in site.data.resume-experience %}
 
-      <article class="slide__item" itemscope itemprop="{% if forloop.first %}worksFor{% else %}knowsAbout{% endif %}" itemtype="http://schema.org/Organization">
-        <h4 itemprop="name">
-          {{ experience.company }}
-        </h4>
+      <article class="slide__item">
+        <div itemscope itemprop="{% if forloop.first %}worksFor{% else %}knowsAbout{% endif %}" itemtype="http://schema.org/Organization">
+          <h4 itemprop="name">
+            {{ experience.company }}
+          </h4>
 
-        <p itemprop="description">
-          {{ experience.description | newline_to_br }}
-        </p>
+          <p itemprop="description">
+            {{ experience.description | newline_to_br }}
+          </p>
+        </div>
 
         <dl>
           {% for role in experience.roles %}
