@@ -87,7 +87,7 @@ title: Home - Dennis Claassen.nl
 
     {% for experience in site.data.resume-experience %}
 
-      <article class="slide__item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
+      <article class="slide__item" itemscope itemprop="{% if forloop.first %}worksFor{% else %}knowsAbout{% endif %}" itemtype="http://schema.org/Organization">
         <h4>
           {{ experience.company }}
         </h4>
