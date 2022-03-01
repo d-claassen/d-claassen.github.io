@@ -3,7 +3,7 @@ layout: default
 title: Home - Dennis Claassen.nl
 ---
 
-<section itemscope itemtype="http://schema.org/Person" class="slide grid me">
+<section itemscope itemtype="http://schema.org/Person" itemid="http://www.dennisclaassen.nl/#/schema/person/1" class="slide grid me">
   <div class="pic">
     🙋‍♂️
   </div>
@@ -123,6 +123,7 @@ title: Home - Dennis Claassen.nl
     {% for education in site.data.resume-education %}
 
       <article class="slide__item" itemscope itemtype="http://schema.org/EducationalOrganization">
+        <meta itemprop="alumni" content="http://www.dennisclaassen.nl/#/schema/person/1" />
         <h4 itemprop="name"> {{ education.school }}</h4>
 
         <dl>
