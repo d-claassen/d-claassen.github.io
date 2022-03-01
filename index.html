@@ -100,13 +100,23 @@ title: Home - Dennis Claassen.nl
 
         <dl>
           {% for role in experience.roles %}
-            <div itemprop="hasOccupation" itemscope itemtype="https://schema.org/Role">
+            <div {% unless role.end == "Present" %} itemprop="hasOccupation" itemscope itemtype="https://schema.org/Role" {% endunless %} >
               <div itemprop="hasOccupation" itemscope itemtype="http://schema.org/Occupation">
                 <dt itemprop="name"> {{ role.title }} </dt>
               </div>
 
               <dd>
-                <time itemprop="startDate" datetime="{{ role.start | date: "%Y-%m-%d" }}">{{ role.start | date: "%B %Y" }}</time> - <span itemprop="endDate">{{ role.end }}</span>
+                {% if role.end == "Present" %}
+                  {{ role.start | date: "%B %Y" }} - Present
+                {% else %}
+                  <time itemprop="startDate" datetime="{{ role.start | date: "%Y-%m-%d" }}">
+                    {{ role.start | date: "%B %Y" }}
+                  </time>
+                  -
+                  <span itemprop="endDate" datetime="{{ role.end | date: "%Y-%m-%d" }}">
+                    {{ role.end | date: "%B %Y" }}
+                  </span>
+                {% endif %}
               </dd>
             </div>
           {% endfor %}
