@@ -1,6 +1,40 @@
 ---
 ---
 
+@import url("pygments-github.css");
+
+a:hover {
+	text-decoration: underline;
+}
+
+.breadcrumb > ol {
+	display: flex;
+	list-style: none;
+	margin: 0;
+} 
+
+.breadcrumb-separator {
+	padding-left: 4px;
+	padding-right: 4px;
+}
+
+.highlight {
+	margin: 1rem 0;
+}
+
+.highlight code {
+	font-family: unset;
+	font-weight: unset;
+	color: unset;
+	background: unset;
+	border: unset;
+	padding: unset;
+}
+
+.highlight > pre {
+	white-space: pre-wrap;
+}
+
 // icon sizes
 .extra-large{ font-size: 80px; line-height: 80px; }
 .large{ font-size: 50px; line-height: 50px; }
@@ -53,4 +87,61 @@
 	.content {
 		grid-column: 4 / 6;
 	}
+}
+
+.text-truncate {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Blog
+nav.slide {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.Box {
+  border-color: #d0d7de;
+  border-radius: 6px;
+  border-style: solid;
+  border-width: 1px;
+}
+.Box-row {
+  border-top: 1px solid #d8dee4;
+  list-style-type: none;
+  margin-top: -1px;
+  padding: 8px 16px;
+
+  display: flex;
+  gap: 0.5rem;
+}
+.Box-icon {
+	width: 16px;
+	margin-right: 1rem;
+	flex-shrink: 0;
+
+	svg {
+		display: inline-block;
+		overflow: visible !important;
+		vertical-align: text-bottom;
+		fill: currentColor;
+	}
+}
+.Box-link {
+	color: currentColor;
+  text-decoration: none;
+
+  &:hover {
+    color: #0969da;
+    text-decoration: underline;
+  }
+}
+
+.Box-primary {
+	color: #1f2328;
+}
+
+.Box-secondary {
+	color: #656d76;
 }

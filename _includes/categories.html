@@ -1,0 +1,164 @@
+{%- comment -%} Determine parent levels of the current page. {%- endcomment =%}
+{%- assign page_path_parts = page.path | split: "/" -%}
+{%- assign nr_of_page_parts = page_path_parts | size | minus: 1 -%}
+{%- assign page_parents = page_path_parts | slice: 0, nr_of_page_parts -%}
+
+{%- comment -%}
+{%- assign posts_search_index = nr_of_page_parts | minus: 1 -%}
+{%- if page_parents[posts_search_index] == "_posts" -%}
+  {%- assign page_parents = page_parents | slice: 0, posts_search_index -%}
+{%- endif -%}
+{%- endcomment -%}
+
+{%- comment -%} Prepare arrays to store data for navigation. {%- endcomment -%}
+{%- assign child_categories = "" | split: "/" -%}
+{%- assign child_category_posts = "" | split: "/" -%}
+{%- assign child_posts = "" | split: "/" -%}
+
+{%- comment -%} Loop over all existing posts, to find directly nested categories and posts. {%- endcomment -%}
+{%- for post in site.posts -%}
+
+  {%- comment -%} Determine parent levels of the post. {%- endcomment -%}
+  {%- assign post_path_parts = post.path | split: "/" -%}
+  {%- assign nr_of_post_parts = post_path_parts | size | minus: 1 -%}
+  {%- assign post_categories = post_path_parts | slice: 0, nr_of_post_parts -%}
+
+  {%- comment -%} Clone the parents of the page, to compare and manipulate. {%- endcomment -%}
+  {%- assign cmp = page_parents -%}
+  {%- for parent in post_categories -%}
+    {%- assign comparison = cmp | first -%}
+    
+    {%- if comparison == parent -%}
+      {%- comment -%} First level in `cmp` matches current level of the post. Check the next level. {%- endcomment -%}
+      {%- assign cmp = cmp | shift -%}
+
+    {%- elsif parent == "_posts" and comparison == nil -%}
+      {%- comment -%} No more levels in `cmp`, and we found a post at this level. {%- endcomment -%}
+      {%- assign child_posts = child_posts | push: post -%}
+
+    {%- elsif parent != "_posts" and comparison == nil -%}
+      {%- comment -%} No more levels in `cmp`, and we found a parent at this level. {%- endcomment -%}
+      {%- assign child_category_is_new = true -%}
+
+      {%- comment -%} Check if we already found this parent through an earlier post. {%- endcomment -%}
+      {%- for child_category in child_categories -%}
+        {%- if child_category == parent -%}
+          {%- assign child_category_is_new = false -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- if child_category_is_new -%}
+        {%- assign child_categories = child_categories | push: parent -%}
+        {%- assign child_category_posts = child_category_posts | push: post -%}
+      {%- endif -%}
+      
+      {%- comment -%} Prevent going more nested levels deep. {%- endcomment -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+
+{%- comment -%} Show the path to the current page. {%- endcomment -%}
+{%- if nr_of_page_parts > 0 and true -%}
+  {%- assign relevant_parents = "" | split: "/" %}
+  <div class="breadcrumb-container">
+    {%- for page_parent in page_parents -%}
+      {%- if forloop.first %}
+        <nav class="breadcrumb">
+          <ol> 
+            <li>
+              <a href="/">
+                dennisclaassen.nl
+              </a>
+            </li>
+      {%- endif -%}
+
+      {%- unless forloop.last -%} 
+        {%- assign relevant_parents = relevant_parents | push: page_parent -%}
+        {%- assign parent_url = relevant_parents | join: "/" | prepend: "/" %}
+        <li>
+          <span class="breadcrumb-separator" aria-hidden="true">/</span>
+          {%- comment %} Comment to manipulate white space {% endcomment -%}
+          <a href="{{ parent_url }}">
+            {{- page_parent -}}
+          </a>
+        </li>
+      {%- else %}
+            <li>
+              <span class="breadcrumb-separator" aria-hidden="true">/</span>
+              {%- if page_parent == "_posts" -%}
+                {{ page.title }}
+              {%- else -%}
+                {{ page_parent }}
+              {%- endif -%}
+            </li>
+          </ol>
+        </nav>
+      {%- endunless -%}
+    {%- endfor %}
+  </div>
+{%- endif -%}
+
+{%- comment -%} Show the table with: parent, child categories, child posts. {%- endcomment -%}
+{%- unless page.collection == "posts" %}
+<div class="Box">
+  {%- assign nr_of_parents = page_parents | size -%}
+  {%- if nr_of_parents > 0 %}
+    <div class="Box-row">
+
+      <div class="Box-icon" style="color: #54aeff">
+        <svg aria-label="Directory" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file-directory-fill hx_color-icon-directory">
+          <path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path>
+        </svg>
+      </div>
+
+      <div class="Box-primary">
+        <a href=".." class="Box-link">..</a>
+      </div>
+    </div>
+  {%- endif -%}
+
+  {%- for category in child_categories %}
+    <div class="Box-row">
+
+      <div class="Box-icon" style="color: #54aeff">
+        <svg aria-label="Directory" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file-directory-fill hx_color-icon-directory">
+          <path d="M1.75 1A1.75 1.75 0 0 0 0 2.75v10.5C0 14.216.784 15 1.75 15h12.5A1.75 1.75 0 0 0 16 13.25v-8.5A1.75 1.75 0 0 0 14.25 3H7.5a.25.25 0 0 1-.2-.1l-.9-1.2C6.07 1.26 5.55 1 5 1H1.75Z"></path>
+        </svg>
+      </div>
+
+      <div class="Box-primary" style="margin-right: auto">
+        <a href="{{ category }}" class="Box-link">{{category}}</a>
+      </div>
+
+      <div class="Box-secondary text-truncate" style="width: 40%;">
+        {%- assign current_blog_post = child_category_posts[forloop.index0] %}
+        <a href="{{ current_blog_post.url }}" class="Box-link">{{current_blog_post.title}}</a>
+      </div>
+
+      <div class="Box-secondary" style="width: 150px; text-align: right">
+        {{ current_blog_post.date | date_to_long_string: "ordinal" }}
+      </div>
+    </div>
+  {%- endfor -%}
+
+  {%- for child_post in child_posts %}
+    <div class="Box-row">
+      <div class="Box-icon" style="color: #656d76">
+        <svg aria-label="File" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-file color-fg-muted">
+          <path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"></path>
+        </svg>
+      </div>
+
+      <div class="Box-primary" style="margin-right: auto">
+        <a href="{{ child_post.url }}" class="Box-link">{{child_post.title}}</a>
+      </div>
+      
+      <div class="Box-secondary" style="width: 140px; text-align: right;">
+        {{ child_post.date | date_to_long_string: "ordinal" }}
+      </div>
+    </div>
+  {%- endfor %}
+</div>
+{%- endunless -%}
