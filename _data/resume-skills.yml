@@ -1,10 +1,10 @@
 - name: Web Development
-  description: HTML, JavaScript (jQuery, Vue), CSS (Sass), PHP (Symfony, Doctrine), Git.
+  description: HTML, JavaScript (jQuery, Vue, React), CSS (Sass), PHP (Symfony, Doctrine), Git.
 - name: Database Design
   description: MySQL, Elasticsearch.
 - name: Automated Testing
-  description: Unit testing (PHPUnit, Mocha), end-to-end testing (Selenium), test driven development.
+  description: Unit testing (PHPUnit, Jest), end-to-end testing (Selenium, Puppeteer), test driven development.
 - name: Quality Assurance
-  description: Linting (PHP_CodeSniffer, ESLint), static analysis (Psalm, PHPStan), code review (Phabricator, GitHub), continuous integration (Jenkins), SonarQube.
+  description: Linting (PHP_CodeSniffer, ESLint), static analysis (Psalm, PHPStan), code review (Phabricator, GitHub), continuous integration (Jenkins, GitHub Actions), SonarQube.
 - name: Soft Skills
   description: Communication, coaching, prioritizing, proactive.
