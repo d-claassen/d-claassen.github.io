@@ -141,6 +141,9 @@ title: Home - Dennis Claassen.nl
 
       <article class="slide__item" itemscope itemprop="alumniOf" itemtype="http://schema.org/Role">
         <div itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
+          {% for url in education.urls -%}
+            <meta itemprop="sameAs" content="{{ url }}" />
+          {% endfor %}
           <h4 itemprop="name"> {{ education.school }}</h4>
         </div>
 
