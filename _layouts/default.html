@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="/css/foundation.min.css" />
     <link rel="stylesheet" href="/css/foundation-icons.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    
+    {% if page.schema_include %}
+    <script type="application/ld+json">
+      {% include {{ page.schema_include }} %}
+    </script>
+    {% endif %}
   </head>
   <body>
     <header>
