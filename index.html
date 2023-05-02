@@ -1,18 +1,19 @@
 ---
 layout: default
+schema_include: schema/about-me.html
 title: Home - Dennis Claassen.nl
 ---
 
-<section itemscope itemtype="http://schema.org/Person" itemref="exp edu" class="slide grid me">
+<section class="slide grid me">
   <div class="pic">
     🙋‍♂️
   </div>
   <div class="intro">
     <h2>
-      Hi! I&apos;m <span itemprop="name">Dennis</span>.
+      Hi! I&apos;m Dennis.
     </h2>
     <p class="lead">
-      I&apos;m currently a <span itemprop="jobTitle">lead developer</span> at Yoast. I'm leading 2 multidisciplinary squads
+      I&apos;m currently a lead developer at Yoast. I'm leading 2 multidisciplinary squads
       that focus on Yoast SEO for Shopify, and <a href="https://www.yoast.com" target="_blank" rel="noopener">the Yoast.com website</a> and customer portal.
     </p>
 
@@ -23,19 +24,19 @@ title: Home - Dennis Claassen.nl
     <ul class="no-bullet">
       <li>
         <i class="fi-social-twitter"></i> 
-        <a href="http://twitter.com/declaassen" rel="me noopener" itemprop="sameAs" target="_blank">
+        <a href="http://twitter.com/declaassen" rel="me noopener" target="_blank">
           @declaassen
         </a>
       </li>
       <li>
         <i class="fi-social-linkedin"></i>
-        <a href="http://www.linkedin.com/in/dennis-claassen-developer" rel="me noopener" itemprop="sameAs" target="_blank">
+        <a href="http://www.linkedin.com/in/dennis-claassen-developer" rel="me noopener" target="_blank">
           Dennis Claassen
         </a>
       </li>
       <li>
         <span class="fi-social-github"></span>
-        <a href="https://github.com/d-claassen" rel="me noopener" itemprop="sameAs" target="_blank">
+        <a href="https://github.com/d-claassen" rel="me noopener" target="_blank">
           d-claassen
         </a>
       </li>
@@ -89,33 +90,33 @@ title: Home - Dennis Claassen.nl
 
     {% for experience in site.data.resume-experience %}
 
-      <article class="slide__item" itemscope="" itemprop="worksFor" itemtype="http://schema.org/EmployeeRole">
-        <div itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h4 itemprop="name">
+      <article class="slide__item">
+        <div>
+          <h4>
             {{ experience.company }}
           </h4>
 
-          <p itemprop="description">
+          <p>
             {{ experience.description | newline_to_br }}
           </p>
         </div>
 
         <dl>
           {% for role in experience.roles %}
-            <div {% unless role.end == "Present" %} itemprop="additionalType" itemscope itemtype="http://schema.org/Role" {% endunless %} >
-              <div itemprop="additionalType" itemscope itemtype="http://schema.org/Occupation">
-                <dt itemprop="name"> {{ role.title }} </dt>
+            <div>
+              <div>
+                <dt> {{ role.title }} </dt>
               </div>
 
               <dd>
                 {% if role.end == "Present" %}
                   {{ role.start | date: "%B %Y" }} - Present
                 {% else %}
-                  <time itemprop="startDate" datetime="{{ role.start | date: "%Y-%m-%d" }}">
+                  <time datetime="{{ role.start | date: "%Y-%m-%d" }}">
                     {{ role.start | date: "%B %Y" }}
                   </time>
                   -
-                  <time itemprop="endDate" datetime="{{ role.end | date: "%Y-%m-%d" }}">
+                  <time datetime="{{ role.end | date: "%Y-%m-%d" }}">
                     {{ role.end | date: "%B %Y" }}
                   </time>
                 {% endif %}
@@ -139,12 +140,9 @@ title: Home - Dennis Claassen.nl
 
     {% for education in site.data.resume-education %}
 
-      <article class="slide__item" itemscope itemprop="alumniOf" itemtype="http://schema.org/Role">
-        <div itemscope itemprop="alumniOf" itemtype="http://schema.org/CollegeOrUniversity">
-          {% for url in education.urls -%}
-            <meta itemprop="sameAs" content="{{ url }}" />
-          {% endfor %}
-          <h4 itemprop="name"> {{ education.school }}</h4>
+      <article class="slide__item">
+        <div>
+          <h4> {{ education.school }}</h4>
         </div>
 
         <dl>
@@ -153,10 +151,10 @@ title: Home - Dennis Claassen.nl
             <dt> {{ study.study }} </dt>
 
             <dd>
-              <time itemprop="startDate" datetime="{{ study.start | date: "%Y-%m-%d" }}">
+              <time datetime="{{ study.start | date: "%Y-%m-%d" }}">
                 {{ study.start | date: "%B %Y" }}
               </time> - 
-              <time itemprop="endDate" datetime="{{ study.end | date: "%Y-%m-%d" }}">
+              <time datetime="{{ study.end | date: "%Y-%m-%d" }}">
                 {{ study.end | date: "%B %Y" }}
               </time>
             </dd>

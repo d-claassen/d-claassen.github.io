@@ -1,1 +1,7 @@
 permalink: /:categories/:title:output_ext
+defaults:
+  -
+    scope:
+      path: "" # all files have this default
+    values:
+      schema_include: "schema/basic.html"
