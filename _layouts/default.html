@@ -11,9 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     
     {% if page.schema_include %}
-    <script type="application/ld+json">
       {% include {{ page.schema_include }} %}
-    </script>
     {% endif %}
   </head>
   <body>
