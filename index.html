@@ -102,7 +102,7 @@ title: Home - Dennis Claassen.nl
 
         <dl>
           {% for role in experience.roles %}
-            <div {% unless role.end == "Present" %} itemprop="hasOccupation" itemscope itemtype="https://schema.org/Role" {% endunless %} >
+            <div {% unless role.end == "Present" %} itemprop="hasOccupation" itemscope itemtype="http://schema.org/Role" {% endunless %} >
               <div itemprop="hasOccupation" itemscope itemtype="http://schema.org/Occupation">
                 <dt itemprop="name"> {{ role.title }} </dt>
               </div>
@@ -139,8 +139,8 @@ title: Home - Dennis Claassen.nl
 
     {% for education in site.data.resume-education %}
 
-      <article class="slide__item">
-        <div  itemscope itemprop="alumniOf" itemtype="http://schema.org/EducationalOrganization">
+      <article class="slide__item" itemscope itemprop="alumniOf" itemtype="http://schema.org/Role">
+        <div itemscope itemprop="alumniOf" itemtype="http://schema.org/EducationalOrganization">
           <h4 itemprop="name"> {{ education.school }}</h4>
         </div>
 
@@ -150,7 +150,12 @@ title: Home - Dennis Claassen.nl
             <dt> {{ study.study }} </dt>
 
             <dd>
-              <time>{{ study.start }}</time> - {{ study.end }}
+              <time itemprop="startDate" datetime="{{ study.start | date: "%Y-%m-%d" }}">
+                {{ study.start | date: "%B %Y" }}
+              </time> - 
+              <time itemprop="endDate" datetime="{{ study.end | date: "%Y-%m-%d" }}">
+                {{ study.end | date: "%B %Y" }}
+              </time>
             </dd>
 
           {% endfor %}
