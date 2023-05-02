@@ -89,8 +89,8 @@ title: Home - Dennis Claassen.nl
 
     {% for experience in site.data.resume-experience %}
 
-      <article class="slide__item">
-        <div itemscope itemprop="{% if forloop.first %}worksFor{% else %}knowsAbout{% endif %}" itemtype="http://schema.org/Organization">
+      <article class="slide__item" itemscope="" itemprop="worksFor" itemtype="http://schema.org/EmployeeRole">
+        <div itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
           <h4 itemprop="name">
             {{ experience.company }}
           </h4>
@@ -102,8 +102,8 @@ title: Home - Dennis Claassen.nl
 
         <dl>
           {% for role in experience.roles %}
-            <div {% unless role.end == "Present" %} itemprop="hasOccupation" itemscope itemtype="http://schema.org/Role" {% endunless %} >
-              <div itemprop="hasOccupation" itemscope itemtype="http://schema.org/Occupation">
+            <div {% unless role.end == "Present" %} itemprop="additionalType" itemscope itemtype="http://schema.org/Role" {% endunless %} >
+              <div itemprop="additionalType" itemscope itemtype="http://schema.org/Occupation">
                 <dt itemprop="name"> {{ role.title }} </dt>
               </div>
 
