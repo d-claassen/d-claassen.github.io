@@ -3,6 +3,39 @@
     "@context": "https://schema.org",
     "@graph": [
         {
+            "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1",
+            "@type": "http://schema.org/WebSite",
+            "name": "dennisclaassen.nl",
+            "url": "https://www.dennisclaassen.nl",
+            "inLanguage": {
+                "@type": "http://schema.org/Language", 
+                "name": "English (American)",
+                "alternateName": "en-US",
+                "sameAs": "https://en.wikipedia.org/wiki/American_English"
+            },
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            }
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/WebPage/1",
+            "@type": "http://schema.org/WebPage",
+            "about": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "author": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "isPartOf": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1"
+            },
+            "name": "{{ page.title }}",
+            "url": "https://www.dennisclaassen.nl{{ page.url }}"
+        },
+        {
             "@id": "https://www.dennisclaassen.nl/#/schema/Person/1",
             "@type": "Person",
             "name": "Dennis Claassen",
