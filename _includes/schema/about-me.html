@@ -33,7 +33,8 @@
                 "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1"
             },
             "name": "{{ page.title }}",
-            "url": "https://www.dennisclaassen.nl{{ page.url }}"
+            "url": "https://www.dennisclaassen.nl{{ page.url }}",
+            "sdDatePublished": "{{ site.time | date: "%FT%TZ" }}"
         },
         {
             "@id": "https://www.dennisclaassen.nl/#/schema/Person/1",
