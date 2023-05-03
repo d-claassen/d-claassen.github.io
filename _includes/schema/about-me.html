@@ -3,6 +3,18 @@
     "@context": "https://schema.org",
     "@graph": [
         {
+            "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1",
+            "@type": "http://schema.org/WebSite",
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/WebPage/1",
+            "@type": "http://schema.org/WebPage",
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "isPartOf": "https://www.dennisclaassen.nl/#/schema/WebSite/1"
+        },
+        {
             "@id": "https://www.dennisclaassen.nl/#/schema/Person/1",
             "@type": "Person",
             "name": "Dennis Claassen",
