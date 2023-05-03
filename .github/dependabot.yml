@@ -5,10 +5,3 @@ updates:
   schedule:
     interval: daily
   open-pull-requests-limit: 10
-  ignore:
-  - dependency-name: github-pages
-    versions:
-    - "211"
-  - dependency-name: nokogiri
-    versions:
-    - 1.11.1
