@@ -1,10 +1,15 @@
-- name: Web Development
+- name: Web development
   description: HTML, JavaScript (jQuery, Vue, React), CSS (Sass), PHP (Symfony, Doctrine), Git.
-- name: Database Design
+  wikipedia: https://en.wikipedia.org/wiki/Web_development
+- name: Database design
   description: MySQL, Elasticsearch.
-- name: Automated Testing
+  wikipedia: https://en.wikipedia.org/wiki/Database_design
+- name: Test automation
   description: Unit testing (PHPUnit, Jest), end-to-end testing (Selenium, Puppeteer), test driven development.
-- name: Quality Assurance
+  wikipedia: https://en.wikipedia.org/wiki/Test_automation
+- name: Quality assurance
   description: Linting (PHP_CodeSniffer, ESLint), static analysis (Psalm, PHPStan), code review (Phabricator, GitHub), continuous integration (Jenkins, GitHub Actions), SonarQube.
-- name: Soft Skills
+  wikipedia: https://en.wikipedia.org/wiki/Software_testing
+- name: Soft skills
   description: Communication, coaching, prioritizing, proactive.
+  wikipedia: https://en.wikipedia.org/wiki/Soft_skills
