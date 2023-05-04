@@ -32,7 +32,7 @@
             "isPartOf": {
                 "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1"
             },
-            "name": "{{ page.title }}",
+            "name": {{ page.title | jsonify }},
             "url": "https://www.dennisclaassen.nl{{ page.url }}",
             "sdDatePublished": "{{ site.time | date: "%F" }}"
         },
@@ -81,7 +81,7 @@
                     "worksFor": {
                         "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ experience.company_ref}}"
                     },
-                    "roleName": "{{ role.title }}",
+                    "roleName": {{ role.title | jsonify }},
                     "startDate": "{{ role.start | date: "%F" }}"
                     {%- if role.end -%}
                     ,
@@ -120,7 +120,7 @@
         {
             "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ org_ref }}",
             "@type": "https://schema.org/{{ org.schema_type | default: "Organization" }}",
-            "name": "{{ org.name }}"
+            "name": {{ org.name | jsonify }}
             {%- if org.parent -%}
             ,
             "parentOrganization": {
@@ -141,9 +141,9 @@
         {
             "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/{{ forloop.index }}",
             "@type": "http://schema.org/Specialty",
-            "name": "{{ skill.name }}",
-            "description": "{{ skill.description }}",
-            "sameAs": "{{ skill.wikipedia }}"
+            "name": {{ skill.name | jsonify }},
+            "description": {{ skill.description | jsonify }},
+            "sameAs": {{ skill.wikipedia | jsonify }}
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
     ]
