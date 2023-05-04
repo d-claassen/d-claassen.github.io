@@ -1,5 +1,4 @@
-- school: Hogeschool van Arnhem en Nijmegen
-  school_ref: han
+- school_ref: han
   studies:
   - study: "Communication & Multimedia Design"
     start: September 2008

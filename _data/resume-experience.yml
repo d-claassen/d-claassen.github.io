@@ -1,5 +1,4 @@
-- company: Yoast
-  company_ref: yoast
+- company_ref: yoast
   roles:
   - title: Lead Developer
     start: October 2021
@@ -7,8 +6,7 @@
     start: March 2021
     end: October 2021
 
-- company: YoungCapital
-  company_ref: youngcapital
+- company_ref: youngcapital
   description: |
     In 2017 Hippo HR got acquired by YoungCapital. Being backed by a much bigger company gave a huge boost to the possibilities for our team. 
 
@@ -24,8 +22,7 @@
     start: January 2017
     end: December 2018
 
-- company: Hippo HR
-  company_ref: hippo-hr
+- company_ref: hippo-hr
   description: Hippo HR was the company behind Uitzendbureau.nl. I started here during my study, graduated and stayed afterwards.
   roles:
     - title: Web Developer Uitzendbureau.nl
@@ -38,8 +35,7 @@
       start: May 2011
       end: January 2012
 
-- company: Hogeschool van Arnhem en Nijmegen
-  company_ref: han
+- company_ref: han
   description: |
     During study one of our deliverables had the potential to be put to use during future classes where less developers and more designers would be involved. We as a project team continued work on the product and actually guided the usage during the following semester.
   roles:
@@ -47,8 +43,7 @@
       start: July 2011
       end: January 2012
 
-- company: SQUARE Concepts
-  company_ref: square-concepts
+- company_ref: square-concepts
   roles:
   - title: Intern
     start: September 2010
