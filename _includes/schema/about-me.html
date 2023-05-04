@@ -72,8 +72,8 @@
                 }
             ],
             "worksFor": [
-                {% for experience in site.data.resume-experience %}
-                {% for role in experience.roles %}
+                {%- for experience in site.data.resume-experience %}
+                {%- for role in experience.roles %}
                 {
                     "@type": "http://schema.org/EmployeeRole",
                     "worksFor": {
@@ -84,14 +84,14 @@
                     {%- if role.end -%}
                     ,
                     "endDate": "{{ role.end | date: "%F" }}"
-                    {% endif %}
+                    {%- endif %}
                 }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
-                {% endfor %}
-                {% endfor %}
+                {%- endfor %}
+                {%- endfor %}
             ],
             "alumniOf": [
-                {% for education in site.data.resume-education %}
-                {% for study in education.studies %}
+                {%- for education in site.data.resume-education %}
+                {%- for study in education.studies %}
                 {
                     "@type": "http://schema.org/Role",
                     "alumniOf": {
@@ -100,10 +100,9 @@
                     "roleName": "Student {{ study.study }}",
                     "startDate": "{{ study.start | date: "%F" }}",
                     "endDate": "{{ study.end | date: "%F" }}"
-
                 }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
-                {% endfor %}
-                {% endfor %}
+                {%- endfor %}
+                {%- endfor %}
             ],
             "knowsAbout": [
                 {%- for skill in site.data.resume-skills %}
