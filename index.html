@@ -93,7 +93,7 @@ title: Home - Dennis Claassen.nl
       <article class="slide__item">
         <div>
           <h4>
-            {{ experience.company }}
+            {{ site.data.resume-organizations[experience.company_ref].name }}
           </h4>
 
           <p>
@@ -109,7 +109,7 @@ title: Home - Dennis Claassen.nl
               </div>
 
               <dd>
-                {% if role.end == "Present" %}
+                {% if role.end == nil %}
                   {{ role.start | date: "%B %Y" }} - Present
                 {% else %}
                   <time datetime="{{ role.start | date: "%Y-%m-%d" }}">
@@ -142,7 +142,7 @@ title: Home - Dennis Claassen.nl
 
       <article class="slide__item">
         <div>
-          <h4> {{ education.school }}</h4>
+          <h4> {{ site.data.resume-organizations[education.school_ref].name }} </h4>
         </div>
 
         <dl>

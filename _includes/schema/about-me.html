@@ -38,7 +38,7 @@
         },
         {
             "@id": "https://www.dennisclaassen.nl/#/schema/Person/1",
-            "@type": "Person",
+            "@type": "http://schema.org/Person",
             "name": "Dennis Claassen",
             "familyName": "Claassen",
             "givenName": "Dennis",
@@ -60,186 +60,86 @@
                 "sameAs": "https://en.wikipedia.org/wiki/Netherlands"
             },
             "knowsLanguage": [
-                {"@type": "http://schema.org/Language", "name": "Dutch", "alternateName": "nl"},
-                {"@type": "http://schema.org/Language", "name": "English", "alternateName": "en"}
-            ],
-            "worksFor": [
                 {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/1"
-                    },
-                    "roleName": "Lead developer",
-                    "startDate": "2021-10-01"
+                    "@type": "http://schema.org/Language",
+                    "name": "Dutch",
+                    "alternateName": "nl"
                 },
                 {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/1"
-                    },
-                    "roleName": "Senior developer",
-                    "startDate": "2021-03-01",
-                    "endDate": "2021-09-30"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/2"
-                    },
-                    "roleName": "Senior developer Uitzendbureau.nl & Jobbird.com",
-                    "startDate": "2020-01-01",
-                    "endDate": "2021-02-28"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/2"
-                    },
-                    "roleName": "Developer Uitzendbureau.nl & Jobbird.com",
-                    "startDate": "2019-01-01",
-                    "endDate": "2019-12-31"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/2"
-                    },
-                    "roleName": "Developer Uitzendbureau.nl",
-                    "startDate": "2017-01-01",
-                    "endDate": "2018-12-31"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/3"
-                    },
-                    "roleName": "Web Developer Uitzendbureau.nl",
-                    "startDate": "2012-08-01",
-                    "endDate": "2016-12-31"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/3"
-                    },
-                    "roleName": "Graduate Uitzendbureau.nl",
-                    "startDate": "2012-01-01",
-                    "endDate": "2012-07-31"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/3"
-                    },
-                    "roleName": "Developer Uitzendbureau.nl",
-                    "startDate": "2011-05-01",
-                    "endDate": "2011-12-31"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/4"
-                    },
-                    "roleName": "Student Assistant",
-                    "startDate": "2011-07-01",
-                    "endDate": "2012-01-31"
-                },
-                {
-                    "@type": "http://schema.org/EmployeeRole",
-                    "worksFor": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/5"
-                    },
-                    "roleName": "Intern",
-                    "startDate": "2010-09-01",
-                    "endDate": "2011-01-31"
+                    "@type": "http://schema.org/Language",
+                    "name": "English",
+                    "alternateName": "en"
                 }
             ],
+            "worksFor": [
+                {%- for experience in site.data.resume-experience %}
+                {%- for role in experience.roles %}
+                {
+                    "@type": "http://schema.org/EmployeeRole",
+                    "worksFor": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ experience.company_ref}}"
+                    },
+                    "roleName": "{{ role.title }}",
+                    "startDate": "{{ role.start | date: "%F" }}"
+                    {%- if role.end -%}
+                    ,
+                    "endDate": "{{ role.end | date: "%F" }}"
+                    {%- endif %}
+                }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+                {%- endfor %}
+                {%- endfor %}
+            ],
             "alumniOf": [
+                {%- for education in site.data.resume-education %}
+                {%- for study in education.studies %}
                 {
                     "@type": "http://schema.org/Role",
                     "alumniOf": {
-                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/4"
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ education.school_ref }}"
                     },
-                    "roleName": "Student Communication & Multimedia Design",
-                    "startDate": "2008-09-01",
-                    "endDate": "2012-06-01"
-                }
+                    "roleName": "Student {{ study.study }}",
+                    "startDate": "{{ study.start | date: "%F" }}",
+                    "endDate": "{{ study.end | date: "%F" }}"
+                }{% unless forloop.last and forloop.parentloop.last %},{% endunless %}
+                {%- endfor %}
+                {%- endfor %}
             ],
             "knowsAbout": [
-                {"@id": "https://www.dennisclaassen.nl/#/schema/Specialty/1"},
-                {"@id": "https://www.dennisclaassen.nl/#/schema/Specialty/2"},
-                {"@id": "https://www.dennisclaassen.nl/#/schema/Specialty/3"},
-                {"@id": "https://www.dennisclaassen.nl/#/schema/Specialty/4"},
-                {"@id": "https://www.dennisclaassen.nl/#/schema/Specialty/5"}
+                {%- for skill in site.data.resume-skills %}
+                {
+                    "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/{{ forloop.index }}"
+                }{% unless forloop.last %},{% endunless %}
+                {%- endfor %}
             ]
         },
+        {%- for org_data in site.data.resume-organizations %}
+        {%- assign org_ref = org_data[0] %}
+        {%- assign org = org_data[1] %}
         {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Organization/1",
-            "@type": "https://schema.org/Organization",
-            "name": "Yoast"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Organization/2",
-            "@type": "https://schema.org/Organization",
-            "name": "YoungCapital"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Organization/3",
-            "@type": "https://schema.org/Organization",
-            "name": "Hippo HR",
+            "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ org_ref }}",
+            "@type": "https://schema.org/{{ org.schema_type | default: "Organization" }}",
+            "name": "{{ org.name }}"
+            {%- if org.parent -%}
+            ,
             "parentOrganization": {
                 "@type": "http://schema.org/OrganizationRole",
                 "parentOrganization": {
-                    "@id": "https://www.dennisclaassen.nl/#/schema/Organization/2"
+                    "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ org.parent.ref }}"
                 },
-                "startDate": "2017-01-01"
+                "startDate": "{{ org.parent.start | date: "%F" }}"
             }
+            {%- endif %}
         },
+        {%- endfor %}
+        {% for skill in site.data.resume-skills -%}
         {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Organization/4",
-            "@type": "https://schema.org/CollegeOrUniversity",
-            "name": "Hogeschool van Arnhem en Nijmegen"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Organization/5",
-            "@type": "https://schema.org/Organization",
-            "name": "SQUARE Concepts"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/1",
+            "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/{{ forloop.index }}",
             "@type": "http://schema.org/Specialty",
-            "name": "Web development",
-            "description": "HTML, JavaScript (jQuery, Vue, React), CSS (Sass), PHP (Symfony, Doctrine), Git.",
-            "sameAs": "https://en.wikipedia.org/wiki/Web_development"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/2",
-            "@type": "http://schema.org/Specialty",
-            "name": "Database design",
-            "description": "MySQL, Elasticsearch.",
-            "sameAs": "https://en.wikipedia.org/wiki/Database_design"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/3",
-            "@type": "http://schema.org/Specialty",
-            "name": "Test automation",
-            "description": "Unit testing (PHPUnit, Jest), end-to-end testing (Selenium, Puppeteer), test driven development.",
-            "sameAs": "https://en.wikipedia.org/wiki/Test_automation"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/4",
-            "@type": "http://schema.org/Specialty",
-            "name": "Quality assurance",
-            "description": "Linting (PHP_CodeSniffer, ESLint), static analysis (Psalm, PHPStan), code review (Phabricator, GitHub), continuous integration (Jenkins, GitHub Actions), SonarQube.",
-            "sameAs": "https://en.wikipedia.org/wiki/Software_testing"
-        },
-        {
-            "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/5",
-            "@type": "http://schema.org/Specialty",
-            "name": "Soft skills",
-            "description": "Communication, coaching, prioritizing, proactive.",
-            "sameAs": "https://en.wikipedia.org/wiki/Soft_skills"
-        }
+            "name": "{{ skill.name }}",
+            "description": "{{ skill.description }}",
+            "sameAs": "{{ skill.wikipedia }}"
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
     ]
 }
 </script>
