@@ -1,8 +1,8 @@
 - company_ref: yoast
   roles:
-  - title: Lead Developer
+  - title: Lead developer
     start: October 2021
-  - title: Senior Developer
+  - title: Senior developer
     start: March 2021
     end: October 2021
 
@@ -12,7 +12,7 @@
 
     In 2019, YoungCapital acquired Jobbird.com and we as a team were given the challenge to adjust our platform to run a second website on it.
   roles:
-  - title: Senior Developer Uitzendbureau.nl & Jobbird.com
+  - title: Senior developer Uitzendbureau.nl & Jobbird.com
     start: January 2020 
     end: February 2021
   - title: Developer Uitzendbureau.nl & Jobbird.com
@@ -25,7 +25,7 @@
 - company_ref: hippo-hr
   description: Hippo HR was the company behind Uitzendbureau.nl. I started here during my study, graduated and stayed afterwards.
   roles:
-    - title: Web Developer Uitzendbureau.nl
+    - title: Web developer Uitzendbureau.nl
       start: August 2012
       end: December 2016
     - title: Graduate Uitzendbureau.nl
@@ -39,7 +39,7 @@
   description: |
     During study one of our deliverables had the potential to be put to use during future classes where less developers and more designers would be involved. We as a project team continued work on the product and actually guided the usage during the following semester.
   roles:
-    - title: Student Assistent
+    - title: Student assistent
       start: July 2011
       end: January 2012
 
