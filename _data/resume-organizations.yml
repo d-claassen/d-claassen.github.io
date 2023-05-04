@@ -1,10 +1,15 @@
 han:
   name: Hogeschool van Arnhem en Nijmegen
   schema_type: CollegeOrUniversity
+  same_as:
+  - https://en.wikipedia.org/wiki/HAN_University_of_Applied_Sciences
+  - https://www.han.nl
 
 square-concepts:
   name: SQUARE Concepts
   schema_type: Corporation
+  same_as:
+  - https://www.squareconcepts.nl
 
 hippo-hr:
   name: Hippo HR
@@ -16,7 +21,12 @@ hippo-hr:
 youngcapital:
   name: YoungCapital
   schema_type: Corporation
+  same_as:
+  - https://www.youngcapital.nl
 
 yoast:
   name: Yoast
   schema_type: Corporation
+  same_as:
+  - https://en.wikipedia.org/wiki/Yoast
+  - https://yoast.com

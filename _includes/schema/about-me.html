@@ -131,6 +131,10 @@
                 "startDate": "{{ org.parent.start | date: "%F" }}"
             }
             {%- endif %}
+            {%- if org.same_as != nil -%}
+            ,
+            "sameAs": {{ org.same_as | jsonify }}
+            {%- endif %}
         },
         {%- endfor %}
         {% for skill in site.data.resume-skills -%}
