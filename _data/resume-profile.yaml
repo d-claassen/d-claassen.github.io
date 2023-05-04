@@ -1,0 +1,14 @@
+online_presence:
+- url: http://twitter.com/declaassen
+  display_name: @declaassen
+  icon_class: fi-social-twitter
+- url: http://www.linkedin.com/in/dennis-claassen-developer
+  display_name: Dennis Claassen
+  icon_class: fi-social-linkedin
+- url: https://github.com/d-claassen
+  display_name: d-claassen
+  icon_class: fi-social-github
+- url: https://www.facebook.com/declaassen
+- url: https://instagram.com/declaassen
+- url: https://profiles.wordpress.org/dennisatyoast
+- url: https://yoast.com/about-us/team/dennis-claassen
