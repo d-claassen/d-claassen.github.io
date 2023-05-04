@@ -112,9 +112,9 @@
                 {%- endfor %}
             ]
         },
-        {% for org_data in site.data.resume-organizations %}
-        {% assign org_ref = org_data[0] %}
-        {% assign org = org_data[1] %}
+        {%- for org_data in site.data.resume-organizations %}
+        {%- assign org_ref = org_data[0] %}
+        {%- assign org = org_data[1] %}
         {
             "@id": "https://www.dennisclaassen.nl/#/schema/Organization/{{ org_ref }}",
             "@type": "https://schema.org/{{ org.schema_type | default: "Organization" }}",
@@ -128,9 +128,9 @@
                 },
                 "startDate": "{{ org.parent.start | date: "%F" }}"
             }
-            {% endif %}
+            {%- endif %}
         },
-        {% endfor %}
+        {%- endfor %}
         {% for skill in site.data.resume-skills -%}
         {
             "@id": "https://www.dennisclaassen.nl/#/schema/Specialty/{{ forloop.index }}",

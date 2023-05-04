@@ -1,18 +1,22 @@
 han:
   name: Hogeschool van Arnhem en Nijmegen
   schema_type: CollegeOrUniversity
+
 square-concepts:
   name: SQUARE Concepts
   schema_type: Corporation
+
 hippo-hr:
   name: Hippo HR
   schema_type: Corporation
   parent:
     ref: youngcapital
     start: 2017-01-01
+
 youngcapital:
   name: YoungCapital
   schema_type: Corporation
+
 yoast:
   name: Yoast
   schema_type: Corporation
