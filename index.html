@@ -23,6 +23,16 @@ title: Home - Dennis Claassen.nl
     
     <!--
     {% assign socials = site.data.resume-profile.online_presence | where_exp: "item", "item.icon_class != nil" %}
+    <ul class="no-bullet">
+    {% for socials as social %}
+      <li>
+        <i class="{{ social.icon_class }}"></i>
+        <a href="{{ social.url }}" rel="me noopener" target="_blank">
+          {{ social.display_name }}
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
     {{ socials | jsonify }}
     -->
 
