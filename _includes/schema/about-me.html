@@ -1,7 +1,3 @@
-<!--
-  {% assign socials = site.data.resume-profile.online_presence | map: "url" %}
-  {{ socials | jsonify }}
--->
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
@@ -47,15 +43,7 @@
             "familyName": "Claassen",
             "givenName": "Dennis",
             "jobTitle": "Lead developer",
-            "sameAs": [
-                "http://twitter.com/declaassen",
-                "http://www.linkedin.com/in/dennis-claassen-developer",
-                "https://github.com/d-claassen",
-                "https://www.facebook.com/declaassen",
-                "https://instagram.com/declaassen",
-                "https://profiles.wordpress.org/dennisatyoast",
-                "https://yoast.com/about-us/team/dennis-claassen"
-            ],
+            "sameAs": {{ site.data.resume-profile.online_presence | map: "url" | jsonify }},
             "gender": "http://schema.org/Male",
             "nationality": {
                 "@type": "Country",
