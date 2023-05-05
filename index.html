@@ -20,6 +20,11 @@ title: Home - Dennis Claassen.nl
     <p>
       If you want to get in contact or stay up to date with what interests me at the moment, the best places to find me are:
     </p>
+    
+    <!--
+    {% assign socials = site.data.resume-profile.online_presence | where_exp: "item", "item.icon_class != nil" %}
+    {{ socials | jsonify }}
+    -->
 
     <ul class="no-bullet">
       <li>
