@@ -21,40 +21,16 @@ title: Home - Dennis Claassen.nl
       If you want to get in contact or stay up to date with what interests me at the moment, the best places to find me are:
     </p>
     
-    <!--
     {% assign socials = site.data.resume-profile.online_presence | where_exp: "item", "item.icon_class != nil" %}
     <ul class="no-bullet">
-    {% for social in socials %}
+    {%- for social in socials %}
       <li>
         <i class="{{ social.icon_class }}"></i>
         <a href="{{ social.url }}" rel="me noopener" target="_blank">
           {{ social.display_name }}
         </a>
       </li>
-    {% endfor %}
-    </ul>
-    {{ socials | jsonify }}
-    -->
-
-    <ul class="no-bullet">
-      <li>
-        <i class="fi-social-twitter"></i> 
-        <a href="http://twitter.com/declaassen" rel="me noopener" target="_blank">
-          @declaassen
-        </a>
-      </li>
-      <li>
-        <i class="fi-social-linkedin"></i>
-        <a href="http://www.linkedin.com/in/dennis-claassen-developer" rel="me noopener" target="_blank">
-          Dennis Claassen
-        </a>
-      </li>
-      <li>
-        <span class="fi-social-github"></span>
-        <a href="https://github.com/d-claassen" rel="me noopener" target="_blank">
-          d-claassen
-        </a>
-      </li>
+    {%- endfor %}
     </ul>
   </div>
   <!--
