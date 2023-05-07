@@ -123,6 +123,10 @@
                 "startDate": "{{ org.parent.start | date: "%F" }}"
             }
             {%- endif %}
+            {%- if org.described_on_webpage != nil -%}
+            ,
+            "mainEntityOfPage": {{ org.described_on_webpage | jsonify }}
+            {%- endif %}
             {%- if org.same_as != nil -%}
             ,
             "sameAs": {{ org.same_as | jsonify }}
