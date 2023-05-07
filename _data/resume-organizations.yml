@@ -27,6 +27,7 @@ youngcapital:
 yoast:
   name: Yoast
   schema_type: Corporation
+  described_on_webpage: https://yoast.com/about-us/
   same_as:
   - https://en.wikipedia.org/wiki/Yoast
   - https://yoast.com
