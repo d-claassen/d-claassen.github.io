@@ -68,6 +68,31 @@
                     "sameAs": "https://en.wikipedia.org/wiki/English_language"
                 }
             ],
+            "hasOccupation": [
+                {
+                    "@type": "https://schema.org/Role",
+                    "hasOccupation": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Occupation/lead-developer"
+                    },
+                    "startDate": "2021-10-01"
+                },
+                {
+                    "@type": "https://schema.org/Role",
+                    "hasOccupation": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Occupation/senior-developer"
+                    },
+                    "startDate": "2020-01-01",
+                    "endDate": "2021-10-01"
+                },
+                {
+                    "@type": "https://schema.org/Role",
+                    "hasOccupation": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Occupation/developer"
+                    },
+                    "startDate": "2012-08-01",
+                    "endDate": "2019-12-01"
+                }
+            ],
             "worksFor": [
                 {%- for experience in site.data.resume-experience %}
                 {%- for role in experience.roles %}
@@ -143,8 +168,23 @@
             "name": {{ skill.name | jsonify }},
             "description": {{ skill.description | jsonify }},
             "sameAs": {{ skill.wikipedia | jsonify }}
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
+        },
+        {%- endfor %}
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/Occupation/lead-developer",
+            "@type": "https://schema.org/Occupation",
+            "name": "Lead developer"
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/Occupation/senior-developer",
+            "@type": "https://schema.org/Occupation",
+            "name": "Senior developer"
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/Occupation/developer",
+            "@type": "https://schema.org/Occupation",
+            "name": "Developer"
+        }
     ]
 }
 </script>
