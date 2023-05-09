@@ -21,6 +21,7 @@ hippo-hr:
 youngcapital:
   name: YoungCapital
   schema_type: Corporation
+  # described_on_webpage: https://www.youngcapital.nl/about-yc
   same_as:
   - https://www.youngcapital.nl
 
