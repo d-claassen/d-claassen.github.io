@@ -82,7 +82,13 @@
                 "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
             },
             "blogPost": [
-
+                {% for post in site.posts %}
+                {
+                  "@id": "{{ post.url }}",
+                  "@type": "BlogPosting",
+                  "name": "{{ post.title }}"
+                }{% unless forloop.last %},{% endunless %}
+                {% endfor %}
             ]
         }
     ]
