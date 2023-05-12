@@ -89,12 +89,15 @@
                 "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
             },
             "blogPost": [
-                {% for post in site.posts %}
+                {%- for post in site.posts %}
                 {
                     "@id": "{{ post.url }}",
                     "@type": "BlogPosting",
-                    "headline": "{{ post.title }}",
                     "mainEntityOfPage": "{{ post.url }}",
+                    "headline": {{ post.title | jsonify }},
+                    "name": {{ post.title | jsonify }},
+                    "description": {{ post.excerpt | strip_html | jsonify }},
+                    "datePublished": "{{ post.date | date: "%F" }}",
                     "author": {
                         "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
                     },
@@ -104,9 +107,10 @@
                     "inLanguage": {
                         "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
                     },
+                    "url": "{{ post.url }}",
                     "wordCount": {{ post.content | strip_html | split: ' ' | size }}
                 }{% unless forloop.last %},{% endunless %}
-                {% endfor %}
+                {%- endfor %}
             ]
         }
     ]
