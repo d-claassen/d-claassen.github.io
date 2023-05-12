@@ -94,6 +94,7 @@
                     "publisher": {
                         "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
                     },
+                    "wordCount": {{ post.content | strip_html | split: ' ' | size }}
                 }{% unless forloop.last %},{% endunless %}
                 {% endfor %}
             ]
