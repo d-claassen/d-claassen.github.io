@@ -86,7 +86,8 @@
                 {
                   "@id": "{{ post.url }}",
                   "@type": "BlogPosting",
-                  "name": "{{ post.title }}"
+                  "name": "{{ post.title }}",
+                  "mainEntityOfPage": "{{ post.url }}"
                 }{% unless forloop.last %},{% endunless %}
                 {% endfor %}
             ]
