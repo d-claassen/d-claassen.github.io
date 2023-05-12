@@ -84,10 +84,16 @@
             "blogPost": [
                 {% for post in site.posts %}
                 {
-                  "@id": "{{ post.url }}",
-                  "@type": "BlogPosting",
-                  "name": "{{ post.title }}",
-                  "mainEntityOfPage": "{{ post.url }}"
+                    "@id": "{{ post.url }}",
+                    "@type": "BlogPosting",
+                    "name": "{{ post.title }}",
+                    "mainEntityOfPage": "{{ post.url }}",
+                    "author": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+                    },
+                    "publisher": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+                    },
                 }{% unless forloop.last %},{% endunless %}
                 {% endfor %}
             ]
