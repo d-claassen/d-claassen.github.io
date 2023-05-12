@@ -2,6 +2,7 @@
 layout: post
 author: "Dennis Claassen"
 title: "PHP8+ change: throw as an expression"
+schema_include: schema/blog-post.html
 ---
 
 With PHP8, the throw statement has changed into an expression. This might not sound like much, but allows you to use throw expressions in new situations. All the details can be found [in the RFC](https://wiki.php.net/rfc/throw_expression).

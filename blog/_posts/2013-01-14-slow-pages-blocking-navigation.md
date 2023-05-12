@@ -2,7 +2,9 @@
 layout: post
 author: "Dennis Claassen"
 title: "Slow pages that are blocking navigation"
+schema_include: schema/blog-post.html
 ---
+
 When developing a website with PHP, from time to time pages might end up slow to load. Since we don't want our users to wait too long for these pages, we load the slow parts of the page with AJAX. This way, the perceived speed is much higher. But when we have multiple pieces of data that we try to load with simultaneous requests, the requests might be resolved sequentially. Or when the user wants to navigate to a different page, this page suddenly takes a long time to load. While it would normally be much faster!
 
 How does this happen and how can we solve it?

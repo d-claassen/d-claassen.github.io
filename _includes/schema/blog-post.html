@@ -1,0 +1,118 @@
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1",
+            "@type": "http://schema.org/WebSite",
+            "name": "dennisclaassen.nl",
+            "url": "https://www.dennisclaassen.nl",
+            "inLanguage": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
+            },
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            }
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us",
+            "@type": "http://schema.org/Language", 
+            "name": "English (American)",
+            "alternateName": "en-US",
+            "sameAs": "https://en.wikipedia.org/wiki/American_English"
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/WebPage/1",
+            "@type": [
+                "http://schema.org/WebPage",
+                "http://schema.org/CollectionPage"
+            ],
+            "about": {
+                "@id": "{{ page.url }}"
+            },
+            "mainEntity": {
+                "@id": "{{ page.url }}"
+            },
+            "author": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "isPartOf": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/WebSite/1"
+            },
+            "name": {{ page.title | jsonify }},
+            "url": "https://www.dennisclaassen.nl{{ page.url }}",
+            "sdDatePublished": "{{ site.time | date: "%F" }}"
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/Person/1",
+            "@type": "http://schema.org/Person",
+            "name": "Dennis Claassen",
+            "mainEntityOfPage": "https://www.dennisclaassen.nl",
+            "familyName": "Claassen",
+            "givenName": "Dennis",
+            "jobTitle": "Lead developer",
+            "sameAs": {{ site.data.resume-profile.online_presence | map: "url" | jsonify }},
+            "gender": "http://schema.org/Male",
+            "nationality": {
+                "@type": "Country",
+                "name": "Netherlands",
+                "alternateName": "NL",
+                "sameAs": "https://en.wikipedia.org/wiki/Netherlands"
+            },
+            "knowsLanguage": [
+                {
+                    "@type": "http://schema.org/Language",
+                    "name": "Dutch",
+                    "alternateName": "nl",
+                    "sameAs": "https://en.wikipedia.org/wiki/Dutch_language"
+                },
+                {
+                    "@type": "http://schema.org/Language",
+                    "name": "English",
+                    "alternateName": "en",
+                    "sameAs": "https://en.wikipedia.org/wiki/English_language"
+                }
+            ]
+        },
+        {
+            "@id": "{{ page.url }}",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": "{{ page.url }}",
+            "headline": {{ page.title | jsonify }},
+            "name": {{ page.title | jsonify }},
+            "description": {{ page.excerpt | strip_html | jsonify }},
+            "datePublished": "{{ page.date | date: "%F" }}",
+            "author": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "isPartOf": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Blog/1"
+            },
+            "inLanguage": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
+            },
+            "url": "{{ page.url }}",
+            "wordCount": {{ page.content | strip_html | split: ' ' | size }}
+        },
+        {
+            "@id": "https://www.dennisclaassen.nl/#/schema/Blog/1",
+            "@type": "http://schema.org/Blog",
+            "mainEntityOfPage": "https://www.dennisclaassen.nl/blog/",
+            "name": "Blog Dennis Claassen.nl",
+            "description": "Here you'll find all my thoughts, that I had to get out my system.",
+            "publisher": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+            },
+            "inLanguage": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
+            }
+        }
+    ]
+}
+</script>
