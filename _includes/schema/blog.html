@@ -85,6 +85,9 @@
             "publisher": {
                 "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
             },
+            "inLanguage": {
+                "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
+            },
             "blogPost": [
                 {% for post in site.posts %}
                 {
@@ -97,6 +100,9 @@
                     },
                     "publisher": {
                         "@id": "https://www.dennisclaassen.nl/#/schema/Person/1"
+                    },
+                    "inLanguage": {
+                        "@id": "https://www.dennisclaassen.nl/#/schema/Language/en-us"
                     },
                     "wordCount": {{ post.content | strip_html | split: ' ' | size }}
                 }{% unless forloop.last %},{% endunless %}
